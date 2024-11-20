@@ -1,4 +1,4 @@
-import { Circle } from "../types/interfaces";
+import { Circle } from "../types/circleInterface";
 
 export function generateCircles(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext('2d');
@@ -11,8 +11,9 @@ export function generateCircles(canvas: HTMLCanvasElement) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const minCircles = 15;
-    const maxCircles = 30;
+    const minCircles = window.innerWidth < 425 ? 5 : window.innerWidth < 768 ? 10 : 15;
+    const maxCircles = window.innerWidth < 425 ? 7 : window.innerWidth < 768 ? 15 : 30;
+
     const circlesCount = Math.floor(Math.random() * (maxCircles - minCircles + 1)) + minCircles;
 
     const circles: Circle[] = [];
