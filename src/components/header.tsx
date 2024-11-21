@@ -4,7 +4,7 @@ import humberger from "../assets/hamburger.png";
 import logo from "../assets/logo.png";
 
 
-const Header: FC<HeaderProps> = ({ navLinks, signupButton }) => {
+const Header: FC<HeaderProps> = ({ navLinks, signupButton, children }) => {
     const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
     const handleMenuToggle = () => {
@@ -25,12 +25,18 @@ const Header: FC<HeaderProps> = ({ navLinks, signupButton }) => {
                 ))}
             </nav>
 
-            <button
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full hidden md:flex"
-                onClick={() => window.location.href = signupButton.href}
-            >
-                {signupButton.label}
-            </button>
+            <div className='hidden md:flex  space-x-3  items-center px-2'>
+
+                {children}
+
+                <button
+                    className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full "
+                    onClick={() => window.location.href = signupButton.href}
+                >
+                    {signupButton.label}
+                </button>
+            </div>
+
 
             <button
                 id="menu-btn"
@@ -50,12 +56,20 @@ const Header: FC<HeaderProps> = ({ navLinks, signupButton }) => {
                     </a>
                 ))}
 
-                <button
-                    className="bg-green-600 hover:bg-green-700 text-white font-bold  mt-3 py-2 px-10 rounded-full w-auto "
-                    onClick={() => window.location.href = signupButton.href}    >
-                    {signupButton.label}
-                </button>
+                <div className='flex flex-col my-3'>
+
+                    <button
+                        className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full "
+                        onClick={() => window.location.href = signupButton.href}
+                    >
+                        {signupButton.label}
+                    </button>
+
+                    {children}
+
+                </div>
             </nav>
+
 
         </header>
     );
