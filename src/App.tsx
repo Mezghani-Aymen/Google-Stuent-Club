@@ -2,9 +2,12 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { generateCircles } from './utils/circle';
 import Header from "./components/header";
 import Hero from "./components/hero/hero";
+import { ToggleButton } from "./components/buttons/toggleButton";
+import { useAnimation } from './contexts/animationContext';
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { isAnimated } = useAnimation();
 
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -27,9 +30,9 @@ function App() {
 
   useEffect(() => {
     if (canvasRef.current) {
-      generateCircles(canvasRef.current);
+      generateCircles(canvasRef.current, isAnimated);
     }
-  }, [windowSize]);
+  }, [windowSize, isAnimated]);
 
   const navLink = [
     { label: 'Home', href: 'HOME' },
@@ -43,12 +46,17 @@ function App() {
     <div className="text-white">
       <canvas ref={canvasRef} className="w-screen h-screen bg-black fixed -z-10"></canvas>
       <div className="w-full h-full  fixed -z-5 bg-white backdrop-filter backdrop-blur-sm bg-opacity-10 "></div>
-      <div>
+      <>
         <Header
           navLinks={navLink}
-          signupButton={{ label: 'Glory', href: '#' }}
-        />
-      </div>
+          signupButton={{ label: 'Glory', href: '#' }}>
+
+          <ToggleButton />
+        </Header>
+
+        <Hero />
+
+      </>
     </div>
   );
 }
