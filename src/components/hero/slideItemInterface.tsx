@@ -1,4 +1,6 @@
-export interface ItemProps {
+export interface SlideItemProps {
+    index: number,
+    activeIndex: number,
     title: string;
     description: string;
     image: string;
@@ -6,5 +8,6 @@ export interface ItemProps {
         label: string;
         href: string;
     };
-    bgColor: string
+    color: string,
+    onClick: () => void;
 }
