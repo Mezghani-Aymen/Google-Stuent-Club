@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SlideItemProps } from "./slideItemInterface";
+import { SlideItemProps } from "./types/slideItemInterface";
 
 export const SlideItem: FC<SlideItemProps> = ({ title, description, image, button, color, onClick, index }) => {
     return (
