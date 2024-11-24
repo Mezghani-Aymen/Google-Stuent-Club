@@ -1,13 +1,5 @@
-export interface SlideItemProps {
+export interface CardItemProps {
     index: number,
-    activeIndex: number,
+    number: number,
     title: string;
-    description: string;
-    image: string;
-    button: {
-        label: string;
-        href: string;
-    };
-    color: string,
-    onClick: () => void;
 }
