@@ -1,4 +1,5 @@
 export interface CardItemProps {
     number: number,
-    title: string;
+    title: string,
+    color: string,
 }
