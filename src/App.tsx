@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { generateCircles } from './utils/circle';
+import { useAnimation } from './contexts/animationContext';
+
+// Components
 import Header from "./components/header";
 import Hero from "./components/hero/hero";
 import { ToggleButton } from "./components/buttons/toggleButton";
-import { useAnimation } from './contexts/animationContext';
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -43,8 +45,8 @@ function App() {
   ]
 
   return (
-    <div className="text-white">
-      <canvas ref={canvasRef} className="w-screen h-screen bg-black fixed -z-10"></canvas>
+    <div className="text-white  overflow-x-hidden">
+      <canvas ref={canvasRef} className="w-screen h-screen bg-[#161616] fixed -z-10"></canvas>
       <div className="w-full h-full  fixed -z-5 bg-white backdrop-filter backdrop-blur-sm bg-opacity-10 "></div>
       <>
         <Header
