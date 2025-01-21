@@ -43,7 +43,7 @@ export function generateCircles(canvas: HTMLCanvasElement, isAnimated: boolean) 
             const y = Math.floor(Math.random() * (canvas.height - radius * 2)) + radius;
 
             const color = colors[Math.floor(Math.random() * colors.length)];
-            const speed = isAnimated ? Math.random() * 2 + 0.5 : 0 
+            const speed = isAnimated ? Math.random() * 1 : 0
 
             circle = { x, y, radius, color, speed };
         } while (isOverlapping(circle));
