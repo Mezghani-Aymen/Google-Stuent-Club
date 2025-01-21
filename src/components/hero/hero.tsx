@@ -1,6 +1,7 @@
 import { FC, useRef, useState } from 'react';
 import './hero.css';
 import { SlideItem } from './slideItem';
+import { CardHeroItem } from './cardHeroItem';
 
 // Icons
 import home from "../../assets/event.png";
@@ -84,6 +85,24 @@ const Hero: FC = () => {
         }
     ];
 
+    const listCardItems = [
+        {
+            number: 200,
+            title: "Home",
+            color: "-custom-red",
+        },
+        {
+            number: 200,
+            title: "Home",
+            color: "-custom-blue",
+        },
+        {
+            number: 200,
+            title: "Home",
+            color: "-custom-green",
+        },
+    ];
+
     const handleItemClick = (index: number) => {
         if (!(index === activeIndex)) {
             setActiveIndex(index);
@@ -125,10 +144,14 @@ const Hero: FC = () => {
             {/* Cards */}
             <div className="relative flex justify-center items-center md:items-end flex-col sm:flex-row gap-6 px-6 ">
                 {/* Card Item */}
-                <div className="rounded-[20px] sm:rounded-[0] sm:rounded-t-[20px]  md:rounded-t-[20px] w-auto h-40 px-6 py-0 text-2xl flex flex-col justify-evenly items-center sm:gap-6 sm:py-5 md:justify-start bg-custom-green backdrop-filter backdrop-blur-lg bg-opacity-30 ">
-                    <span>200</span>
-                    <span>Numbers</span>
-                </div>
+                {listCardItems.map((card, index) => (
+                    <CardHeroItem
+                        key={index}
+                        number={card.number}
+                        title={card.title}
+                        color={card.color}
+                    />
+                ))}
             </div>
         </section>
     );
