@@ -5,6 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        autoRun: "autoRun 2s linear infinite",
+      },
+      keyframes: {
+        autoRun: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
       colors: {
         'custom-red': {
           DEFAULT: '#DB4437',
